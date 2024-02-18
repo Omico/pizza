@@ -1,0 +1,63 @@
+versions:
+  androidx:
+    activity: "1.9.0-alpha03"
+    navigation: "2.8.0-alpha02"
+  consensus: "0.9.0"
+  gradle: "8.6"
+  kotlin: "2.0.0-Beta4"
+  material: "1.12.0-alpha03"
+  plugins:
+    android: "8.2.2"
+    gradle.enterprise: "3.16.2"
+    spotless: "6.25.0"
+
+repositories:
+  google:
+  omico:
+  mavenCentral:
+  gradlePluginPortal:
+
+plugins:
+  google:
+    androidx.navigation.safeargs.kotlin: ${versions.androidx.navigation}
+    com.android.application: ${versions.plugins.android}
+  gradlePluginPortal:
+    com.diffplug.spotless: ${versions.plugins.spotless}
+    com.gradle.enterprise: ${versions.plugins.gradle.enterprise}
+    org.jetbrains.kotlin.android: ${versions.kotlin}
+  omico:
+    me.omico.consensus.api: ${versions.consensus}
+    me.omico.consensus.git: ${versions.consensus}
+    me.omico.consensus.spotless: ${versions.consensus}
+
+dependencies:
+  google:
+    androidx.activity:
+      activity-ktx:
+        alias: androidx.activity.ktx
+        version: ${versions.androidx.activity}
+    androidx.navigation:
+      navigation-fragment-ktx:
+        alias: androidx.navigation.fragment.ktx
+        version: ${versions.androidx.navigation}
+      navigation-ui-ktx:
+        alias: androidx.navigation.ui.ktx
+        version: ${versions.androidx.navigation}
+    com.android.tools.build:
+      gradle:
+        alias: androidGradlePlugin
+        version: ${versions.plugins.android}
+    com.google.android.material:
+      material:
+        alias: material
+        version: ${versions.material}
+  mavenCentral:
+    org.jetbrains.kotlin:
+      kotlin-gradle-plugin:
+        alias: kotlinGradlePlugin
+        version: ${versions.kotlin}
+  omico:
+    me.omico.consensus:
+      consensus-dsl:
+        alias: me.omico.consensus.dsl
+        version: ${versions.consensus}
