@@ -1,3 +1,6 @@
+/*
+ * Copyright 2024 Omico. All Rights Reserved.
+ */
 package me.omico.gradle.project
 
 import com.android.build.api.dsl.CommonExtension
@@ -13,7 +16,7 @@ internal fun Project.configureCommonAndroid(
     namespace: String = "$domain.${name.replace("-", ".")}",
     coreLibraryDesugaringVersion: String = "2.0.4",
 ) {
-    extensions.configure<CommonExtension<*, *, *, *, *>>("android") {
+    extensions.configure<CommonExtension<*, *, *, *, *, *>>("android") {
         this.namespace = namespace
         this.compileSdk = compileSdk
         defaultConfig {
