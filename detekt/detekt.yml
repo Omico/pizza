@@ -17,6 +17,6 @@ naming:
 
 style:
   MagicNumber:
-    active: false
+    ignoreLocalVariableDeclaration: true
   ReturnCount:
     active: false
