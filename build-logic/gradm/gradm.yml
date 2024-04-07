@@ -3,7 +3,7 @@ versions:
     activity: "1.9.0-alpha03"
     navigation: "2.8.0-alpha02"
   consensus: "0.9.0"
-  gradle: "8.6"
+  gradle: "8.7"
   kotlin: "2.0.0-Beta4"
   material: "1.12.0-alpha03"
   plugins:
