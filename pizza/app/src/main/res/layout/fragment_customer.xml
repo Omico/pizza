@@ -25,16 +25,15 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             app:layout_anchor="@+id/submit"
-            app:layout_anchorGravity="start|bottom"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_anchorGravity="start|bottom">
 
             <include
                 android:id="@+id/customer_information_view"
