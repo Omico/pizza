@@ -4,7 +4,10 @@
 package me.omico.pizza
 
 import android.annotation.SuppressLint
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.ui.setupWithNavController
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import me.omico.pizza.databinding.FragmentCustomerBinding
 
 class CustomerPage : BaseFragment<FragmentCustomerBinding>(
@@ -24,6 +27,12 @@ class CustomerPage : BaseFragment<FragmentCustomerBinding>(
             )
             viewModel.submitCostumerInformation(costumerInformation)
             navController.navigate(CustomerPageDirections.actionNavCustomerToNavReceipt())
+
+            // Save the receipt as a txt file (“receipt.txt”) in the internal storage.
+            lifecycleScope.launch {
+                requireContext().filesDir.resolve("receipt.txt")
+                    .writeText(viewModel.receiptInformationText.first())
+            }
         }
     }
 }
