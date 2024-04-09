@@ -20,5 +20,17 @@
     <fragment
         android:id="@+id/nav_customer"
         android:name="me.omico.pizza.CustomerPage"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_customer">
+        <action
+            android:id="@+id/action_nav_customer_to_nav_receipt"
+            app:destination="@id/nav_receipt"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_receipt"
+        android:name="me.omico.pizza.ReceiptPage"
+        tools:layout="@layout/fragment_receipt" />
 </navigation>

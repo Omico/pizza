@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="Customer" />
+            app:title="Receipt" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -36,8 +36,8 @@
             app:layout_anchorGravity="start|bottom">
 
             <include
-                android:id="@+id/customer_information_view"
-                layout="@layout/view_customer_information"
+                android:id="@+id/receipt_information_view"
+                layout="@layout/view_receipt_information"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="16dp"
@@ -46,14 +46,4 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:importantForAccessibility="no"
-        android:text="Submit"
-        app:icon="@drawable/ic_submit" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

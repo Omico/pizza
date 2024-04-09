@@ -51,6 +51,37 @@ class PizzaViewModel : ViewModel() {
             )
         }
 
+    val receiptInformationText: Flow<String> =
+        combine(
+            _selectedPizza,
+            selectedPizzaSize,
+            selectedToppings,
+            costumerInformation,
+        ) {
+                pizza,
+                pizzaSize,
+                toppings,
+                costumerInformation,
+            ->
+            buildString {
+                append("${pizza.name} (${pizzaSize.displayName})")
+                if (pizzaSize != PizzaSize.SMALL) append(" +$${pizzaSize.price}")
+                appendLine()
+                if (toppings.isNotEmpty()) {
+                    appendLine("Toppings:")
+                    toppings.forEach { topping -> appendLine("    ${topping.name} +$${topping.price}") }
+                }
+                appendLine()
+                appendLine("Customer Information")
+                appendLine("    Name: ${costumerInformation.name}")
+                appendLine("    Phone: ${costumerInformation.phoneNumber}")
+                appendLine("    Email: ${costumerInformation.email}")
+                appendLine("    Address: ${costumerInformation.address}")
+                appendLine()
+                appendLine("Total: $${calculateTotalPrice(pizza, pizzaSize, toppings)}")
+            }
+        }
+
     fun selectPizza(pizza: Pizza) {
         viewModelScope.launch {
             _selectedPizza.emit(pizza)
@@ -74,4 +105,14 @@ class PizzaViewModel : ViewModel() {
             costumerInformation.emit(customInformation)
         }
     }
+
+    private fun calculateTotalPrice(
+        pizza: Pizza,
+        pizzaSize: PizzaSize,
+        toppings: List<PizzaTopping>,
+    ): Double =
+        pizza.price
+            .plus(pizzaSize.price)
+            .plus(toppings.sumOf(PizzaTopping::price))
+            .round(2)
 }
