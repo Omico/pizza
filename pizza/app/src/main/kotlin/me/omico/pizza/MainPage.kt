@@ -50,8 +50,6 @@ class MainPage : BaseFragment<FragmentMainBinding>(
             viewModel.selectPizzaSize(selectedSize)
         }
 
-        help.setOnClickListener { navController.navigate(MainPageDirections.actionNavMainToNavHelp()) }
-
         with(addToppingsView.toppings) {
             pizzaToppingList.forEach { pizzaTopping ->
                 addChip {
